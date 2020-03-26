@@ -43,6 +43,6 @@ class CurrencyServiceImplTest {
         assertEquals("1,96", decimalFormat.format(bgnRate));
 
         double ronRate = rates.getRates().get(Values.CurrencyCodes.ROMANIA_CURRENCY);
-        assertEquals("4,85", decimalFormat.format(ronRate));
+        assertEquals("4,83", decimalFormat.format(ronRate));
     }
 }

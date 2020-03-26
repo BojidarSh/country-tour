@@ -58,6 +58,6 @@ class CountryServiceImplTest {
         assertNotNull(romania);
         assertEquals(Values.CountryNames.ROMANIA, romania.getName());
         assertEquals(Values.CountryCodes.HUNGARY_CODE, romania.getBorders().get(1));
-        assertEquals(Values.CountryCodes.ROMANIA_CODE, romania.getCurrencies().get(0));
+        assertEquals(Values.CurrencyCodes.ROMANIA_CURRENCY, romania.getCurrencies().get(0));
     }
 }
