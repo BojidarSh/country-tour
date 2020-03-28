@@ -15,6 +15,7 @@ import org.springframework.web.client.HttpClientErrorException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintViolationException;
+import java.net.ConnectException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.UnknownHostException;
@@ -83,6 +84,18 @@ public class GlobalExceptionHandler {
 
         ExceptionResponse response = createExceptionResponse(request, "Not found.");
         logger.error("HttpClientErrorException: '{}'.", exception.getMessage());
+
+        return response;
+    }
+
+    @ExceptionHandler
+    @ResponseBody
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ExceptionResponse handle(ConnectException exception,
+                                    final HttpServletRequest request) {
+
+        ExceptionResponse response = createExceptionResponse(request, exception.getMessage());
+        logger.error("Connecting service failed: '{}'.", exception.getMessage());
 
         return response;
     }
