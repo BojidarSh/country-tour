@@ -40,9 +40,13 @@ class CurrencyServiceImplTest {
         DecimalFormat decimalFormat = new DecimalFormat("0.00");
 
         double bgnRate = rates.getRates().get(Values.CurrencyCodes.BULGARIA_CURRENCY);
-        assertEquals("1,96", decimalFormat.format(bgnRate));
+        String actualBgnRateString = decimalFormat.format(bgnRate);
+        actualBgnRateString = actualBgnRateString.substring(0, actualBgnRateString.length() - 1);
+        assertEquals("1,9", actualBgnRateString);
 
         double ronRate = rates.getRates().get(Values.CurrencyCodes.ROMANIA_CURRENCY);
-        assertEquals("4,83", decimalFormat.format(ronRate));
+        String actualRonRateString = decimalFormat.format(ronRate);
+        actualRonRateString = actualRonRateString.substring(0, actualRonRateString.length() - 1);
+        assertEquals("4,8", actualRonRateString);
     }
 }
