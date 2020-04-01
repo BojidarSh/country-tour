@@ -35,8 +35,8 @@ public class CountryTourController {
                              @Valid @Max(5000) @RequestParam(defaultValue = "200") int budgetPerCountry,
                              @Valid @Max(50000) @RequestParam(defaultValue = "2000") int totalBudget,
                              @Valid @Size(max = 3) @RequestParam(defaultValue = "EUR") String currency,
-                             @Valid @Size(max = 10) @RequestParam(defaultValue = "EUR") String requestId,
-                             @Valid @Size(max = 36) @RequestParam(defaultValue = "EUR") String flowId) {
+                             @Valid @Size(max = 10) @RequestParam String requestId,
+                             @Valid @Size(max = 36) @RequestParam String flowId) {
 
         return countryTourService.calculateTours(country, budgetPerCountry, totalBudget, currency, requestId, flowId);
     }
